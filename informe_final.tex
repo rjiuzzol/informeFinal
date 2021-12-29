@@ -1,0 +1,178 @@
+\documentclass[twoside]{article}
+
+\usepackage[sc]{mathpazo} % Use the Palatino font
+\usepackage[T1]{fontenc} % Use 8-bit encoding that has 256 glyphs
+\linespread{1.05} % Line spacing - Palatino needs more space between lines
+\usepackage{microtype} % Slightly tweak font spacing for aesthetics
+\usepackage{color} % Permite cambiar el color del texto
+%\usepackage{siunitx}
+%\usepackage[twoside,width=16cm,height=24cm,left=3cm]{geometry}
+\usepackage[hmarginratio=1:1,top=20mm,width=19cm,height=23cm,columnsep=15pt]{geometry} % Document margins
+\usepackage{multicol} % Used for the two-column layout of the document
+\usepackage[hang, small,labelfont=bf,up,textfont=it,up]{caption} % Custom captions under/above floats in tables or figures
+\usepackage{booktabs} % Horizontal rules in tables
+\usepackage{float} % Required for tables and figures in the multi-column environment - they need to be placed in specific locations with the [H] (e.g. \begin{table}[H])
+\usepackage{hyperref} % For hyperlinks in the PDF
+
+\usepackage[spanish]{babel}% idioma castellano
+\usepackage[utf8]{inputenc}% esto es para poder poner los tildes directamente. Puede que cambie de versión a versión de sistema operativos (más información en http://www.aq.upm.es/Departamentos/Fisica/agmartin/webpublico/latex/FAQ-CervanTeX/FAQ-CervanTeX-6.html )
+\usepackage{graphicx} % para insertar figuras
+%\usepackage{subfigure} % para insertar figuras dentro de figuras
+\usepackage{times} % plataforma
+\usepackage{amsmath} % --para ecuaciones y algunos símbolos 
+\usepackage{amssymb} % Libreria de Simbolos
+\usepackage{enumerate} % Mas control en el uso de listas
+
+\usepackage{bm}
+
+\usepackage{lettrine} % The lettrine is the first enlarged letter at the beginning of the text
+\usepackage{paralist} % Used for the compactitem environment which makes bullet points with less space between them
+
+\usepackage{abstract} % Allows abstract customization
+\renewcommand{\abstractnamefont}{\normalfont\bfseries} % Set the "Abstract" text to bold
+\renewcommand{\abstracttextfont}{\normalfont\small\itshape} % Set the abstract itself to small italic text
+\addto\captionsspanish{ % Modifica algunos nombres cambiandolos por los definidos a continuacion
+        \def\contentsname{\'Indice}%
+        \def\bibname{Referencias}%
+        \def\tablename{Tabla}%
+        \def\abstractname{Resumen}
+        }
+
+\usepackage{titlesec} % Allows customization of titles
+\usepackage{fancyhdr} % Headers and footers
+\pagestyle{fancy} % All pages have headers and footers
+\fancyhead{} % Blank out the default header
+\fancyfoot{} % Blank out the default footer
+\fancyhead[C]{Laboratorio 6 $\bullet$ Cátedra Ledesma} % Custom header text
+\fancyfoot[RO,LE]{\thepage} % Custom footer text
+\newcommand{\grad}{$^{\circ}$}
+
+
+
+
+\usepackage[utf8]{inputenc}  
+\usepackage{amsmath}        
+\usepackage{fullpage}       
+\usepackage{booktabs}        
+\usepackage{tikz}  
+\usepackage[spanish]{babel}
+\usepackage{pgfplots}        
+\usepackage{float}            
+\usepackage{hyperref}   
+\usepackage{color}             
+\usepackage{graphicx}        
+\usepackage{xfrac}
+\usepackage{titling}
+\usepackage{amssymb}
+\usepackage{multirow}
+\hyphenpenalty=100000         
+\pgfplotsset{compat=1.10}
+\usepackage{subcaption}
+\usepackage{natbib}
+\usepackage{siunitx}
+\sisetup{load-configurations = abbreviations}
+
+\usepackage[format=plain,
+            labelfont=it,
+            textfont=it]{caption}
+
+\usepackage{geometry}
+\geometry{
+left=20mm,
+right=20mm,
+}
+
+\usepackage{multicol}
+
+\begin{document}
+
+\begin{titlepage}
+\begin{center}
+
+\textsc{\LARGE Laboratorio 6}\\[0.5cm]
+\textsc{\Large Departamento de Física}\\[0.5cm]
+\textsc{\Large Facultad de Ciencias Exactas y Naturales}\\[0.5cm]
+\textsc{\Large Universidad de Buenos Aires}\\[1.5cm]
+
+1er cuatrimestre 2021\\[1.5cm]
+
+{ \huge \bfseries Aplicación del efecto Josephson a la generación de señales arbitrarias con aplicaciones a la metrología}\\[1.5cm]
+
+
+\begin{minipage}{0.8\textwidth}
+\begin{flushleft} \large
+
+Pinto Zárate, José Daniel\\
+
+\end{flushleft}
+\end{minipage}
+\vfill
+{\large \today}
+\end{center}
+\end{titlepage}
+
+
+\begin{abstract}
+
+En este trabajo se realizaron distintas simulaciones numéricas de pulsos de corriente, destinados a alimentar un array de junturas Josephson y construir el sintetizador JAWS
+
+\end{abstract}
+
+\begin{multicols}{2}
+
+\section{Introducción}
+
+El JAWS (Josephson Arbitrary Waveform Synthesizer) es el sintetizador de señales  más preciso que existe en la actualidad. Su operación consiste en mandar pulsos de corriente, en un rango de frecuencias de microondas, hacia un {\it array} de junturas de Josephson
+
+\subsection{Efecto Josephson}
+
+Cuando se conecta un número grande de junturas Josephson en serie, este efecto se amplifica dando lugar a la posibilidad de generar voltajes ordenes de magnitud mayores a los de la juntura simple. 
+
+Los niveles que se usan son $n=0,1$
+
+
+\subsection{Modulación $\Sigma\Delta$}
+
+La modulación sigma delta es una técnica para representar una señal analógica a través de una señal digital de pocos valores. Intuitivamente, compensamos los pocos valores que podemos expresar digitalmente con representar muchos de esto para cada dato analógico que tengamos.
+
+A continuación se describe el método muy resumidamente \cite{delarosa2011}. 
+
+%etimología? sumamos diferencias, promediamos la señal, pero sumamos(sigma) diferencias(delta)
+
+Se parte de una señal temporal idealizada que llamamos $x(t)$, que representa la señal que queremos generar. Para ilustrar, supongamos que la señal es de tensión, pero puede ser cualquier otro tipo de señal.
+
+A $x(t)$ se le realiza un sampleo temporal, i.e. quedarse con muestras de la misma a intervalos de tiempo iguales $T_s$, obteniendo una señal discretizada en el tiempo $x[n]$.
+
+Luego, se discretiza la tensión, lo que quiere decir que de todo el contínuo de tensiones, solo nos quedaremos con un conjunto finito de valores. En nuestro caso son 2, que definen los límites del rango de la señal que podremos generar.
+
+
+% no estoy muy seguro de lo siguiente:
+La ventaja de este método particular es que tiene la particularidad de tener mucha fidelidad a la señal original, y la desventaja es que requiere mucho poder de cómputo frente a otras técnicas de conversión digital. Una comparación de algunas de estas técnicas se muestra en la figura \ref{fig:tecnicas}
+
+
+\section{Descripción de la Simulación \& Experimento}
+
+En este trabajo se implementó desde cero, siguiendo diferentes publicaciones (\cite{delarosa2011}, \cite{aziz1996}). Esto permitió explorar diferentes aspectos del método que no eran muy accesibles desde otras implementaciones, de manera muy sencilla.
+Las implementaciones anteriores contienen optimizaciones adicionales que mi código no tiene. La más conocida es el paquete de Matlab de Richard Scherier \cite{DSmatlab}, sobre la cual se basa el paquete de Python de Venturini deltasigma. Este último paquete fue usado para contrastar cualitativamente los pulsos generados por nuestro código, además de los resultados obtenidos en simulaciones numéricas de distintas fuentes \cite{aziz1996}, \cite{delarosa2011},
+
+
+\section{Resultados y Análisis}
+
+Usando nuestro script \cite{script}, generamos los pulsos correspondientes a una señal DC para reproducir los resultados que se muestran en \cite{aziz1996}. En la figura 
+
+
+
+
+
+
+
+\newpage 
+\bibliographystyle{unsrt}
+\bibliography{references}
+
+
+\nocite{*} % Insert publications even if they are not cited in the poster
+
+\end{multicols}
+
+\end{document}
