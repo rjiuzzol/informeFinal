@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 21.12.10) (preloaded format=pdflatex 2021.12.29)  8 JAN 2022 17:30
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 21.12.10) (preloaded format=pdflatex 2021.12.29)  14 JAN 2022 10:00
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**"c:/Users/dann2/OneDrive/Documentos/OneDrive/Documentos/Physicsss/L6&7/Laboratorio 7/DATOS ULTIMOS DE DICIEMBRE/informe_final/informe_final.tex"
-(c:/Users/dann2/OneDrive/Documentos/OneDrive/Documentos/Physicsss/L6&7/Laboratorio 7/DATOS ULTIMOS DE DICIEMBRE/informe_final/informe_final.tex
+**"c:/Users/dann2/OneDrive/Documentos/OneDrive/Documentos/Physicsss/L6&7/Laboratorio 7/informeFinal/informe_final.tex"
+(c:/Users/dann2/OneDrive/Documentos/OneDrive/Documentos/Physicsss/L6&7/Laboratorio 7/informeFinal/informe_final.tex
 LaTeX2e <2021-11-15> patch level 1
 L3 programming layer <2021-11-22> (C:\Users\dann2\AppData\Local\Programs\MiKTeX 2.9\tex/latex/base\article.cls
 Document Class: article 2021/10/04 v1.4n Standard LaTeX document class
@@ -1177,14 +1177,14 @@ Package rerunfilecheck Info: File `informe_final.out' has not changed.
  ) 
 Here is how much of TeX's memory you used:
  41824 strings out of 478659
- 973376 string characters out of 2843989
+ 973124 string characters out of 2843989
  1342612 words of memory out of 3000000
  58939 multiletter control sequences out of 15000+600000
  520436 words of font info for 341 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 84i,8n,89p,1137b,970s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 84i,8n,89p,1109b,970s stack positions out of 5000i,500n,10000p,200000b,80000s
 {C:/Users/dann2/AppData/Local/Programs/MiKTeX 2.9/fonts/enc/dvips/base/8r.enc}<C:/Users/dann2/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/dann2/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/dann2/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/mathpazo/fplmbb.pfb><C:/Users/dann2/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/mathpazo/fplmr.pfb><C:/Users/dann2/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/mathpazo/fplmri.pfb><C:/Users/dann2/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/palatino/uplr8a.pfb><C:/Users/dann2/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/palatino/uplri8a.pfb><C:/Users/dann2/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/times/utmb8a.pfb><C:/Users/dann2/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb><C:/Users/dann2/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.pfb>
-Output written on informe_final.pdf (5 pages, 1380497 bytes).
+Output written on informe_final.pdf (5 pages, 1380496 bytes).
 PDF statistics:
  156 PDF objects out of 1000 (max. 8388607)
  25 named destinations out of 1000 (max. 500000)
