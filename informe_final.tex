@@ -5,8 +5,8 @@
 \linespread{1.05} % Line spacing - Palatino needs more space between lines
 \usepackage{microtype} % Slightly tweak font spacing for aesthetics
 \usepackage{color} % Permite cambiar el color del texto
-%\usepackage{siunitx}
-%\usepackage[twoside,width=16cm,height=24cm,left=3cm]{geometry}
+\usepackage{siunitx}
+\usepackage[twoside,width=16cm,height=24cm,left=3cm]{geometry}
 \usepackage[hmarginratio=1:1,top=20mm,width=19cm,height=23cm,columnsep=15pt]{geometry} % Document margins
 \usepackage{multicol} % Used for the two-column layout of the document
 \usepackage[hang, small,labelfont=bf,up,textfont=it,up]{caption} % Custom captions under/above floats in tables or figures
@@ -117,7 +117,7 @@ Pinto Zárate, José Daniel\\
 
 \begin{abstract}
 
-    Se armó una sonda JAWS y se simularon patrones de pulsos de corriente de alta frecuencia, se utilizaron en una FPGA y posteriormente se pasaron al array de junturas Josephson sumergidas en Helio a  según la modulación Sigma-Delta de primer orden. Se enviaron dichos pulsos de corriente de alta frecuencia hacia esos arrays de junturas, sumergidas en Helio a 4.2K,
+    En este trabajo se armó e implementó un sistema Josephson pulsado (JAWS)
 
 \end{abstract}
 
@@ -308,13 +308,14 @@ Usando nuestro script \cite{script}, generamos los pulsos correspondientes a una
 
 
 
-\newpage 
+\end{multicols}
+
+%\newpage
 \bibliographystyle{unsrt}
-\bibliography{references}
+\bibliography{references.bib}
 
 
 \nocite{*} % Insert publications even if they are not cited in the poster
 
-\end{multicols}
 
 \end{document}
