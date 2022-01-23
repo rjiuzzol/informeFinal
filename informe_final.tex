@@ -5,24 +5,21 @@
 \linespread{1.05} % Line spacing - Palatino needs more space between lines
 \usepackage{microtype} % Slightly tweak font spacing for aesthetics
 \usepackage{color} % Permite cambiar el color del texto
-\usepackage{siunitx}
-\usepackage[twoside,width=16cm,height=24cm,left=3cm]{geometry}
-\usepackage[hmarginratio=1:1,top=20mm,width=19cm,height=23cm,columnsep=15pt]{geometry} % Document margins
+\usepackage[twoside,height=24cm,left=3cm]{geometry}
 \usepackage{multicol} % Used for the two-column layout of the document
+\setlength\columnsep{20pt}
 \usepackage[hang, small,labelfont=bf,up,textfont=it,up]{caption} % Custom captions under/above floats in tables or figures
 \usepackage{booktabs} % Horizontal rules in tables
 \usepackage{float} % Required for tables and figures in the multi-column environment - they need to be placed in specific locations with the [H] (e.g. \begin{table}[H])
 \usepackage{hyperref} % For hyperlinks in the PDF
 
 \usepackage[spanish]{babel}% idioma castellano
-\usepackage[utf8]{inputenc}% esto es para poder poner los tildes directamente. Puede que cambie de versión a versión de sistema operativos (más información en http://www.aq.upm.es/Departamentos/Fisica/agmartin/webpublico/latex/FAQ-CervanTeX/FAQ-CervanTeX-6.html )
+\usepackage[utf8]{inputenc}
 \usepackage{graphicx} % para insertar figuras
-%\usepackage{subfigure} % para insertar figuras dentro de figuras
-\usepackage{times} % plataforma
+%\usepackage{times} % plataforma
 \usepackage{amsmath} % --para ecuaciones y algunos símbolos 
 \usepackage{amssymb} % Libreria de Simbolos
 \usepackage{enumerate} % Mas control en el uso de listas
-
 \usepackage{bm}
 
 \usepackage{lettrine} % The lettrine is the first enlarged letter at the beginning of the text
@@ -43,34 +40,29 @@
 \pagestyle{fancy} % All pages have headers and footers
 \fancyhead{} % Blank out the default header
 \fancyfoot{} % Blank out the default footer
-\fancyhead[C]{Laboratorio 6 $\bullet$ Cátedra Ledesma} % Custom header text
+\fancyhead[C]{Laboratorio 7 $\bullet$ Cátedra Ledesma} % Custom header text
 \fancyfoot[RO,LE]{\thepage} % Custom footer text
 \newcommand{\grad}{$^{\circ}$}
 
-
-
-
-\usepackage[utf8]{inputenc}  
-\usepackage{amsmath}        
+      
 \usepackage{fullpage}       
 \usepackage{booktabs}        
 \usepackage{tikz}  
 \usepackage[spanish]{babel}
 \usepackage{pgfplots}        
-\usepackage{float}            
+\usepackage{float}          
 \usepackage{hyperref}   
-\usepackage{color}             
+\usepackage{color}
 \usepackage{graphicx}        
 \usepackage{xfrac}
 \usepackage{titling}
-\usepackage{amssymb}
 \usepackage{multirow}
 \hyphenpenalty=100000         
 \pgfplotsset{compat=1.10}
 \usepackage{subcaption}
 \usepackage{natbib}
 \usepackage{siunitx}
-\sisetup{load-configurations = abbreviations}
+
 
 \usepackage[format=plain,
             labelfont=it,
@@ -78,8 +70,8 @@
 
 \usepackage{geometry}
 \geometry{
-left=20mm,
-right=20mm,
+left=15mm,
+right=15mm,
 }
 
 \usepackage{multicol}
@@ -187,7 +179,7 @@ Los pulsos generados por el algoritmo van a ser enviados a un generador de pulso
 
 
 
-\subsection{Modulación $\Sigma\Delta$}
+\subsection{Modulación Sigma - Delta}
 
 La modulación Sigma-Delta \cite{delarosa2011} \cite{aziz1996} es una técnica que permite representar una señal analógica a través de una señal digital de pocos valores. Intuitivamente, compensamos los pocos valores que podemos expresar digitalmente con una alta tasa de muestreo. Es una técnica muy conveniente para la construcción del JAWS, ya que tiene la particularidad de redistribuir el ruido no deseado hacia las altas frecuencias, lo que es ideal para el JAWS ya que el chip tiene impresos filtros pasabajos (figura \ref{fig:LPF}), de modo que el ruido final se reduce considerablemente.
 
@@ -226,7 +218,9 @@ También definimos el ratio de muestreos por período $N_s$, exactamente como ha
 
 La ecuación \ref{eq:ns} solo aplica cuando la señal de entrada es AC, y su frecuencia es $f$.
 
-En la modulación sigma delta, es fundamental usar frecuencias de muestreo lo más altas posibles, ya que es de esta forma que se aumenta la precisión al solo contar con dos valores del generador de pulsos. Para llevar la información que lleva una señal que vive en un rango contínuo, usando solo dos valores discretos, se tiene que tener una gran cantidad de estos valores discretos por cada valor contínuo que queramos representar, y esta cantidad aumenta conforme aumentemos el valor de $f_s$. En nuestro caso, el generador tiene una $f_s = \SI{5}{\giga\hertz}$
+En la modulación sigma delta, es fundamental usar frecuencias de muestreo lo más altas posibles, ya que es de esta forma que se aumenta la precisión al solo contar con dos valores del generador de pulsos. 
+
+Para llevar la información que lleva una señal que vive en un rango contínuo, usando solo dos valores discretos, se tiene que tener una gran cantidad de estos valores discretos por cada valor contínuo que queramos representar, y esta cantidad aumenta conforme aumentemos el valor de $f_s$. En nuestro caso, el generador tiene una $f_s = \SI{5}{\giga\hertz}$
 
 
 
@@ -258,11 +252,8 @@ Así, en la figura \ref{fig:NTF_spec} se muestra el efecto deseado de la modulac
 \end{figure}
 
 Para obtener lo observado en la figura \ref{fig:NTF_spec}, se modeló el ruido de cuantización como una variable aleatoria de dsitribución uniforme entre los valores del cuantizador, i.e. ruido blanco. Haciendo una transformada rápida de Fourier (FFT) de este ruido, se obtiene también ruido blanco, y este espectro es modulado por el valor absoluto de la NTF, que es lo que se observa en la figura \ref{fig:NTF_spec}. En particular, se observa que la modulación de orden 2 es más efectiva al trasladar más ruido desde las bajas hacia las altas frecuencias. 
-Es importante notar que esto es solo un modelo teórico, dado que en realidad $e_q$ no es una variable aleatoria. Pero más adelante (ver figura \ref{fig:espectro}) se va a confirmar que el ruido de la señal generada se corre conforme indica la NTF.
-
 
 \section{Descripción de la simulación numérica}
-
 
 El código utilizado genera distintas variables presentes en la modulación sigma delta, y permite hacer un análisis muy detallado a partir de las mismas. En la figura \ref{fig:bloques} se muestra el diagrama de bloques representativo del algoritmo de modulación de 1er orden \cite{script}.
 
