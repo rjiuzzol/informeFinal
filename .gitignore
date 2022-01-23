@@ -1,8 +1,4 @@
-.vscode/*
-informe_final.pdf
-informe_final.aux
-informe_final.log
-informe_final.out
-informe_final.synctex.gz
-informe_final.bbl
-informe_final.blg
+/*
+!.gitignore
+!informe_final.tex
+!references.bib
