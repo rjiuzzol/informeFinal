@@ -46,6 +46,7 @@
 
 \linespread{1.05}
 \setlength\columnsep{20pt}
+\setlength{\headheight}{12.0pt}
 \addto\captionsspanish{
     \def\contentsname{\'Indice}
     \def\bibname{Referencias}
@@ -267,6 +268,8 @@ En la figura \ref{fig:integrador} se muestra mejor el comportamiento de las vari
 Llega un punto en que $v$ pasa a ser negativo, de modo que, al pasar al cuantizador, generará un pulso $y$ negativo, luego de varios positivos. Esto es lo que se ve en el área de integración positiva: el valor de $u$, en ese lapso muy corto de tiempo, es positivo y muy grande, de tal manera que basta solo uno para volver al régimen de pulsos positivos. De esta manera el algoritmo genera la proporción de pulsos negativos y positivos deseada.
 
 \section{Descripción del experimento}
+
+Como muestra la figura , se utilizó un generador de pulsos programable (FPGA) Xilinx Zynq-7000, que enviaba pulsos de corriente a una frecuencia de \SI{5}{\giga\hertz}. Dicho FPGA tiene tres patrones de calibración, que se usaran para calibrar los pulsos programados. Estos pulsos son enviados mediante un cable semirrígido de norma RG{}, que soporta el rango de frecuencias utilizado en el experimento, y viajan hacia el array sumergido en Helio líquido a \SI{4.2}{\kelvin}
 
 \section{Resultados y Análisis}
 
