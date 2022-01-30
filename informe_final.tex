@@ -103,24 +103,34 @@ Pinto Zárate, José Daniel\\
 
 \section{Introducción}
 
-Los efectos Josephson son una familia de fenómenos que se presentan de diferente manera en las junturas superconductoras, como se muestra en la figura \ref{fig:intro_junturaJosephson}. 
+El efecto Josephson es un fenómeno que se presenta en las junturas superconductoras, como la que se muestra en la figura \ref{fig:intro_junturaJosephson}, cuando a estas se las somete a diferentes señales de corriente en la frecuencia de las microonda. Hay varios tipos de este efecto, y en particular en este trabajo se considera el efecto Jospephson pulsado, que es cuando se envía un tren de pulsos de microondas a un array de junturas Josephson en serie. Otros efectos relacionados son el efecto Josephson AC, que es cuando . Dichos efectos estan entre los que se utilizan para construir otros sintetizadores que aprovechan el mismo fenómeno, como el sistema Josephson programable (PJVS), o el convencional (CJVS). 
+
+El efecto josephson pulsado consiste en una conversión entre una señal de tren de pulsos AC,  y 
+
+
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=\linewidth]{figuras/intro/junturaJosephson.png}
     \caption{Efecto Josephson en una juntura superconductora}
     \label{fig:intro_junturaJosephson}
-    \end{figure}
+\end{figure}
 
 
+
+Un plateau es una zona de la curva I-V en la que la tensión es constante en un rango contínuo de corrientes. Si la corriente que atraviesa el JAWS se mantiene dentro de una de estas zonas, se verifica la ecuación de Josephson.
 La corriente de compensación se agrega para que el array se encuentre en un plateau, como se muestra en la figura \ref{fig:intro_plateau}. La señal debe estar en un plateau ya que es un requisito para que se verifique la ecuaciónde Josephson.
+
+Si el sistema se encuentra en un plateau, se cuantiza el área de la curva de corriente vs tiempo, de modo que aunque los pulsos se deformen, siempre que mantengan su área, se obtendrán los mismos resultados \cite{benz1998}.
+
+El cambio de temperatura es un factor que puede alterar la forma de estos pulsos, y una posible fuente de error. Si por ejemplo los pulsos se ensanchan hasta unirse, se podría perder información de la señal en las zonas en las que haya alta densidad de pulsos.
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=\linewidth]{figuras/intro/plateau.png}
     \caption{Señal corrida a la derecha del plateau}
     \label{fig:intro_plateau}
-    \end{figure}
+\end{figure}
 
 \section{Descripción de la simulación numérica}
 
@@ -154,20 +164,37 @@ Llega un punto en que $v$ pasa a ser negativo, de modo que, al pasar al cuantiza
 
 \section{Descripción del experimento}
 
-Como muestra la figura \ref{fig:experimental_1}, se utilizó un generador de pulsos programable (FPGA) Xilinx Zynq-7000, que enviaba pulsos de corriente a una frecuencia de \SI{5}{\giga\hertz}. Dicho FPGA tiene tres patrones de calibración, que se usaran para calibrar los pulsos programados. Estos pulsos son enviados mediante un cable semirrígido de norma RG{}, que soporta el rango de frecuencias utilizado en el experimento, y viajan hacia el array sumergido en Helio líquido a \SI{4.2}{\kelvin}
+El esquema experimental del JAWS se muestra en la figura \ref{fig:experimental_1}. Se utilizó un generador de pulsos programable (FPGA) Xilinx Zynq-7000, que enviaba pulsos de corriente a una frecuencia de \SI{5}{\giga\hertz}. Dicho FPGA tiene tres patrones de calibración, que se usaran para calibrar los pulsos programados. Estos pulsos son enviados mediante un cable semirrígido, que soporta el rango de frecuencias utilizado en el experimento, y viajan hacia el array sumergido en Helio líquido a \SI{4.2}{\kelvin}
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.75\linewidth]{figuras/experimental/1.png}
     \caption{Esquema del arreglo experimental para la prueba del JAWS}
     \label{fig:experimental_1}
-    \end{figure}
+\end{figure}
 
-A la señal de pulsos de la FPGA se le agrega una corriente adicional de frecuencia \SI{3.125}{\kilo\hertz} mediante un generador de funciones (Tektronix AFG1062), dicha señal es la corriente de compensación
+A la señal de pulsos de la FPGA se le agrega una corriente adicional de frecuencia \SI{3.125}{\kilo\hertz} mediante un generador de funciones (Tektronix AFG1062), dicha señal es la corriente de compensación.
+
+En la figura XXX se muestra un detalle de como se suman las señales de pulsos con la corriente de compensación. El chip JAWS tiene pines por los que entra dicha corriente, mientras que los pulsos entran a través de la entrada externa, mediante el cable semirrígido.
 
 \section{Resultados y Análisis}
 
-Usando nuestro script \cite{script}, generamos los pulsos correspondientes a una señal DC para reproducir los resultados que se muestran en \cite{aziz1996}. En la figura 
+    \subsection{Simulación numérica}
+
+    Usando nuestro script \cite{script}, generamos los pulsos correspondientes a una señal DC para reproducir los resultados que se muestran en \cite{aziz1996}. En la figura 
+
+    \subsection{Pruebas experimentales con la FPGA}
+
+    En la figura \ref{fig:resultados_patron32FPGA} se muestran las mediciones de la calibración de la FPGA. Se puede ver como se deforman los pulsos de corriente.
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.75\linewidth]{figuras/resultados/patron32FPGA.png}
+        \caption{Medición de la salida de la FPGA en el modo de patrón de 1 pulso cada 32}
+        \label{fig:resultados_patron32FPGA}
+    \end{figure}
+
+
 
 \end{multicols}
 
