@@ -103,6 +103,10 @@ Pinto Zárate, José Daniel\\
 
 \section{Introducción}
 
+
+
+\subsection{Efecto Josephson y su aplicacion en el JAWS}
+
 El efecto Josephson es un fenómeno que se presenta en las junturas superconductoras, como la que se muestra en la figura \ref{fig:intro_junturaJosephson}, cuando a estas se las somete a diferentes señales de corriente en la frecuencia de las microonda. Hay varios tipos de este efecto, y en particular en este trabajo se considera el efecto Jospephson pulsado, que es cuando se envía un tren de pulsos de microondas a un array de junturas Josephson en serie. Otros efectos relacionados son el efecto Josephson AC, que es cuando . Dichos efectos estan entre los que se utilizan para construir otros sintetizadores que aprovechan el mismo fenómeno, como el sistema Josephson programable (PJVS), o el convencional (CJVS). 
 
 El efecto josephson pulsado consiste en una conversión entre una señal de tren de pulsos AC,  y 
@@ -125,6 +129,8 @@ Si el sistema se encuentra en un plateau, se cuantiza el área de la curva de co
 
 El cambio de temperatura es un factor que puede alterar la forma de estos pulsos, y una posible fuente de error. Si por ejemplo los pulsos se ensanchan hasta unirse, se podría perder información de la señal en las zonas en las que haya alta densidad de pulsos.
 
+
+
 \begin{figure}[H]
     \centering
     \includegraphics[width=\linewidth]{figuras/intro/plateau.png}
@@ -133,6 +139,11 @@ El cambio de temperatura es un factor que puede alterar la forma de estos pulsos
 \end{figure}
 
 \section{Descripción de la simulación numérica}
+
+
+
+%En este trabajo se implementó, siguiendo diferentes publicaciones (\cite{delarosa2011}, \cite{aziz1996}), el algoritmo de modulación Sigma-Delta de 1er orden en Python. Esto permitió explorar diferentes aspectos del método que no eran muy accesibles desde otras implementaciones, de manera muy sencilla.
+Las implementaciones anteriores contienen optimizaciones adicionales que por el momento nuestro código no incluye. La más conocida es el paquete de Matlab de Richard Scherier \cite{DSmatlab}, sobre la cual se basa el paquete de Python de G. Venturini \cite{DSpython}.
 
 El código utilizado genera distintas variables presentes en la modulación sigma delta, y permite hacer un análisis muy detallado a partir de las mismas. En la figura \ref{fig:bloques} se muestra el diagrama de bloques representativo del algoritmo de modulación de 1er orden \cite{script}.
 
@@ -147,8 +158,6 @@ En el apéndice se describe muy brevemente como se leen estos diagramas, y como 
 La primera, $x$, representa la señal analógica de entrada, que es la señal que queremos generar. $u$ y $v$ son variables auxiliares, en donde $v$ es la integral de $u$, y $u$ es la diferencia $x-y$. $y$ es la salida final del cuantizador, que tiene en nuestro caso solo 2 valores posibles.
 
 
-En este trabajo se implementó, siguiendo diferentes publicaciones (\cite{delarosa2011}, \cite{aziz1996}), el algoritmo de modulación Sigma-Delta de 1er orden en Python. Esto permitió explorar diferentes aspectos del método que no eran muy accesibles desde otras implementaciones, de manera muy sencilla.
-Las implementaciones anteriores contienen optimizaciones adicionales que por el momento nuestro código no incluye. La más conocida es el paquete de Matlab de Richard Scherier \cite{DSmatlab}, sobre la cual se basa el paquete de Python de G. Venturini \cite{DSpython}. %Este último paquete fue usado para contrastar cualitativamente los pulsos generados por nuestro código, además de los resultados obtenidos en simulaciones numéricas de distintas fuentes \cite{aziz1996}, \cite{delarosa2011}.
 
 En la figura \ref{fig:integrador} se muestra mejor el comportamiento de las variables $u$ y $v$ para cuando se quiere generar una señal DC de valor 0.8 u.a. Se observa que hay un período en el que la señal $u=x-y$ es ligeramente negativa, esto es porque $x=0.8$ es ligeramente inferior al nivel superior $y=1$ (todo en unidades arbitrarias). Durante este período, se van sumando estos valores de $u$ al valor de $v$, que en la figura \ref{fig:integrador} es la pendiente negativa que está en el área de integración negativa, sombreada en azul.
 
