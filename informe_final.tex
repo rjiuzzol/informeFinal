@@ -125,7 +125,9 @@ El efecto josephson pulsado consiste en una conversión entre una señal de tren
 Un plateau es una zona de la curva I-V en la que la tensión es constante en un rango contínuo de corrientes. Si la corriente que atraviesa el JAWS se mantiene dentro de una de estas zonas, se verifica la ecuación de Josephson.
 La corriente de compensación se agrega para que el array se encuentre en un plateau, como se muestra en la figura \ref{fig:intro_plateau}. La señal debe estar en un plateau ya que es un requisito para que se verifique la ecuaciónde Josephson.
 
-Si el sistema se encuentra en un plateau, se cuantiza el área de la curva de corriente vs tiempo, de modo que aunque los pulsos se deformen, siempre que mantengan su área, se obtendrán los mismos resultados \cite{benz1998}.
+Si el sistema se encuentra en un plateau, se cuantiza el área de la curva de corriente vs tiempo, de modo que aunque los pulsos se deformen, siempre que mantengan su área, se obtendrán los mismos resultados \cite{benz1998}. 
+
+La cantidad de plateaus es del orden de la cantidad de junturas del array. %no estoy seguro
 
 El cambio de temperatura es un factor que puede alterar la forma de estos pulsos, y una posible fuente de error. Si por ejemplo los pulsos se ensanchan hasta unirse, se podría perder información de la señal en las zonas en las que haya alta densidad de pulsos.
 
@@ -173,7 +175,7 @@ Llega un punto en que $v$ pasa a ser negativo, de modo que, al pasar al cuantiza
 
 \section{Descripción del experimento}
 
-El esquema experimental del JAWS se muestra en la figura \ref{fig:experimental_1}. Se utilizó un generador de pulsos programable (FPGA) Xilinx Zynq-7000, que enviaba pulsos de corriente a una frecuencia de \SI{5}{\giga\hertz}. Dicho FPGA tiene tres patrones de calibración, que se usaran para calibrar los pulsos programados. Estos pulsos son enviados mediante un cable semirrígido, que soporta el rango de frecuencias utilizado en el experimento, y viajan hacia el array sumergido en Helio líquido a \SI{4.2}{\kelvin}
+El esquema experimental del JAWS se muestra en la figura \ref{fig:experimental_1}. Se utilizó un generador de pulsos programable (FPGA) Xilinx Zynq-7000, que enviaba pulsos de corriente a una frecuencia de \SI{5}{\giga\hertz}. Dicho FPGA tiene tres patrones de calibración, que se usaron para calibrar los pulsos programados. Estos pulsos fueron enviados mediante un cable semirrígido, que soporta el rango de frecuencias utilizado en el experimento, y viajaban hacia el array sumergido en Helio líquido a \SI{4.2}{\kelvin}
 
 \begin{figure}[H]
     \centering
@@ -184,7 +186,23 @@ El esquema experimental del JAWS se muestra en la figura \ref{fig:experimental_1
 
 A la señal de pulsos de la FPGA se le agrega una corriente adicional de frecuencia \SI{3.125}{\kilo\hertz} mediante un generador de funciones (Tektronix AFG1062), dicha señal es la corriente de compensación.
 
-En la figura XXX se muestra un detalle de como se suman las señales de pulsos con la corriente de compensación. El chip JAWS tiene pines por los que entra dicha corriente, mientras que los pulsos entran a través de la entrada externa, mediante el cable semirrígido.
+En la figura \ref{fig:experimental_sumaDeCorrientes} se muestra un detalle de como se suman las señales de pulsos con la corriente de compensación. El chip JAWS tiene pines por los que entra dicha corriente, mientras que los pulsos entran a través de la entrada externa, mediante el cable semirrígido.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\linewidth]{figuras/experimental/sumaDeCorrientes.png}
+    \caption{Detalle de la suma de la corriente de compensación y el tren de pulsos de la FPGA}
+    \label{fig:experimental_sumaDeCorrientes}
+\end{figure}
+
+De no estar presente la corriente de compensación, el ruido de la señal podría amplificarse incluso pasando por el array. En la figura XXX se muestra este efecto en un experimento del NIST, en el que se aprecia que cuando se encuentra en el plateau, el array reacciona bien disminuyendo el ruido como se espera.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\linewidth]{figuras/experimental/conYSinPlateau.png}
+    \caption{Comparación entre el nivel de ruido cuando el sistema se encuentra dentro y fuera de un plateau}
+    \label{fig:experimental_conYSinPlateau}
+\end{figure}
 
 \section{Resultados y Análisis}
 
