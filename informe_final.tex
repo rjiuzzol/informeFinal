@@ -105,13 +105,13 @@ En este trabajo se armó e implementó un sistema Josephson pulsado (JAWS)
 
 El JAWS (Josephson Arbitrary Waveform Synthesizer), o sistema Josephson pulsado, es un generador de señales de tensión de forma arbitraria basado en el efecto Josephson, en el cual la tensión generada depende de constantes fundamentales. Pertenece a la familia de sintetizadores basados en el efecto Josephson, 
 % mencionar el reciente cambio del sistema de unidades
-Tiene varias ventajas como generador de señales, como el menor ruido, y la trazabilidad de su amplitud a constantes universales. En la figura XXX se muestra un mapa de 
+Tiene varias ventajas como generador de señales, como el menor ruido, y la trazabilidad de su amplitud a constantes universales. 
 
 d
 
     \subsection{Efecto Josephson y su aplicacion en el JAWS}
 
-    El efecto Josephson es un fenómeno que se presenta en las junturas superconductoras, como la que se muestra en la figura \ref{fig:intro_junturaJosephson}, cuando a estas se las somete a diferentes señales de corriente en la frecuencia de las microondas. Hay varias manifestaciones de este efecto; en el JAWS se trabaja con el efecto Jospephson pulsado, que es cuando se envía un tren de pulsos de microondas a un array de junturas Josephson en serie. Otros efectos relacionados son el efecto Josephson AC, que es cuando . Dichos efectos estan entre los que se utilizan para construir otros sintetizadores que aprovechan el mismo fenómeno, como el sistema Josephson programable (PJVS), o el convencional (CJVS). 
+    El efecto Josephson es un fenómeno que se presenta en las junturas superconductoras, como la que se muestra en la figura \ref{fig:intro_junturaJosephson}, cuando a estas se las somete a diferentes señales de corriente variable. Hay varias manifestaciones de este efecto, siendo las mas conocidas las del efecto Josephson AC y DC; en el JAWS se trabaja con este efecto utilizando trenes de pulsos de corriente a altas frecuencias, del orden de las microondas, generando un efecto similar al del efecto Josephson AC, con la diferencia de que se utilizan pulsos en vez de una señal contínua, que es cuando se envía un tren de pulsos de microondas a un array de junturas Josephson en serie. Otros efectos relacionados son el efecto Josephson AC, que es cuando . Dichos efectos estan entre los que se utilizan para construir otros sintetizadores que aprovechan el mismo fenómeno, como el sistema Josephson programable (PJVS), o el convencional (CJVS). 
 
     El efecto josephson pulsado consiste en una conversión entre una señal de tren de pulsos AC,  y 
 
@@ -124,7 +124,11 @@ d
     \label{fig:intro_junturaJosephson}
 \end{figure}
 
+La curva I-V o curva característica es el gráfico de la tensión en función de la corriente, y en una juntura superconductora se cumple que, en el régimen de temperaturas bajas en las que hay superconducción, dicha curva se aplane, como se muestra en la figura XXX. 
 
+[XXX: grafico de behr de la IV de 1 juntura]
+
+Cuando se trata de varias junturas conectadas en serie, como en el array, este nivel de tensión en el que se aplana puede variar, 
 
 Un plateau es una zona de la curva I-V en la que la tensión es constante en un rango contínuo de corrientes. Si la corriente que atraviesa el JAWS se mantiene dentro de una de estas zonas, se verifica la ecuación de Josephson.
 La corriente de compensación se agrega para que el array se encuentre en un plateau, como se muestra en la figura \ref{fig:intro_plateau}. La señal debe estar en un plateau ya que es un requisito para que se verifique la ecuaciónde Josephson.
