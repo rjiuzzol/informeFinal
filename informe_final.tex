@@ -103,11 +103,25 @@ En este trabajo se armó e implementó un sistema Josephson pulsado (JAWS)
 
 \section{Introducción}
 
-El JAWS (Josephson Arbitrary Waveform Synthesizer), o sistema Josephson pulsado, es un generador de señales de tensión de forma arbitraria basado en el efecto Josephson, en el cual la tensión generada depende de constantes fundamentales. Pertenece a la familia de sintetizadores basados en el efecto Josephson, 
+El JAWS (Josephson Arbitrary Waveform Synthesizer), o sistema Josephson pulsado, es un sistema utilizado para la generación de señales de tensión de forma arbitraria basado en el efecto Josephson, en el cual la tensión generada depende de constantes fundamentales. Pertenece a la familia de sintetizadores basados en el efecto Josephson, como el sistema Josephson programable (PJVS) y el sistema Josephson convencional (CJVS). En la figura \ref{fig:intro_mapaMundoJosephson} se muestra un mapa esquemático que muestra algunos de estos proyectos que se están llevando a cabo actualmente en diferentes centros.
 % mencionar el reciente cambio del sistema de unidades
-Tiene varias ventajas como generador de señales, como el menor ruido, y la trazabilidad de su amplitud a constantes universales. 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{figuras/intro/mapaMundoJosephson.jpg}
+    \caption{Mapa esquemático de los actuales proyectos de sistemas de sintetización de señales basados en el efecto Josephson}
+    \label{fig:intro_mapaMundoJosephson}
+\end{figure}
 
-d
+Una de las ventajas principales del JAWS es que posibilita la minimización del ruido de la señal generada, y para esto se utiliza un método de modulación de pulsos llamado Sigma-Delta ($\Sigma-\Delta$). Esta modulación se usa no solo en metrología, como en nuestro caso, sino también en 
+
+El JAWS tiene varias ventajas como generador de señales, ya que genera una tensión que tiene dependencia total en constantes universales, y tiene trazabilidad a las mismas especificadas por la ecuación de Josephson para el JAWS \ref{eq:intro_ecuacionJosepshon} \cite{behr2012}.
+
+\begin{equation}
+    V = A_{\Sigma\Delta} \Phi_0 f n M
+    \label{eq:intro_ecuacionJosephson}
+\end{equation}
+
+donde $M$ es la cantidad de junturas del array
 
     \subsection{Efecto Josephson y su aplicacion en el JAWS}
 
@@ -150,12 +164,20 @@ El cambio de temperatura es un factor que puede alterar la forma de estos pulsos
 
 \section{Descripción de la simulación numérica}
 
+La generación de los trenes de pulsos utlizados fue hecha usando el algoritmo de modulación Sigma-Delta standard de primer orden. Este es un método iterativo basado en el esquema de bloques de la figura \ref{fig:numerica_esquemaBloques1erOrden}. La implementación se basó en los trabajos de Aziz y De la Rosa. Existen implementaciones de este método pero que tienen un enfoque distinto, como los de 
 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{figuras/numerica/esquemaBloques1erOrden.png}
+    \caption{Diagrama de bloques correspondiente a la modulación $\Sigma\Delta$ de 1er orden}
+    \label{fig:numerica_esquemaBloques1erOrden}
+\end{figure}
 
 %En este trabajo se implementó, siguiendo diferentes publicaciones (\cite{delarosa2011}, \cite{aziz1996}), el algoritmo de modulación Sigma-Delta de 1er orden en Python. Esto permitió explorar diferentes aspectos del método que no eran muy accesibles desde otras implementaciones, de manera muy sencilla.
-Las implementaciones anteriores contienen optimizaciones adicionales que por el momento nuestro código no incluye. La más conocida es el paquete de Matlab de Richard Scherier \cite{DSmatlab}, sobre la cual se basa el paquete de Python de G. Venturini \cite{DSpython}.
+%Las implementaciones anteriores contienen optimizaciones adicionales que por el momento nuestro código no incluye. La más conocida es el paquete de Matlab de Richard Scherier \cite{DSmatlab}, sobre la cual se basa el paquete de Python de G. Venturini \cite{DSpython}.
 
-El código utilizado genera distintas variables presentes en la modulación sigma delta, y permite hacer un análisis muy detallado a partir de las mismas. En la figura \ref{fig:bloques} se muestra el diagrama de bloques representativo del algoritmo de modulación de 1er orden \cite{script}.
+%El código utilizado genera distintas variables presentes en la modulación sigma delta, y permite hacer un análisis muy detallado a partir de las mismas. 
+En la figura \ref{fig:bloques} se muestra el diagrama de bloques representativo del algoritmo de modulación de 1er orden \cite{script}.
 
 \begin{figure}[H]
 \centering
