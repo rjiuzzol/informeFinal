@@ -205,16 +205,18 @@ Llega un punto en que $v$ pasa a ser negativo, de modo que, al pasar al cuantiza
 
 \section{Descripción del experimento}
 
-El esquema experimental del JAWS se muestra en la figura \ref{fig:experimental_1}. Se utilizó un generador de pulsos programable (FPGA) Xilinx Zynq-7000, que enviaba pulsos de corriente a una frecuencia de \SI{5}{\giga\hertz}. Dicho FPGA tiene tres patrones de calibración, que se usaron para calibrar los pulsos programados. Estos pulsos fueron enviados mediante un cable semirrígido, que soporta el rango de frecuencias utilizado en el experimento, y viajaban hacia el array sumergido en Helio líquido a \SI{4.2}{\kelvin}
+El esquema experimental del JAWS se muestra en la figura \ref{fig:experimental_esquemaJAWS}. Se utilizó un generador de pulsos programable (FPGA) Xilinx Zynq-7000, que enviaba pulsos de corriente a una frecuencia de \SI{5}{\giga\hertz}. Dicho FPGA tiene tres patrones de calibración, que se usaron para calibrar los pulsos programados. Estos pulsos fueron enviados mediante un cable semirrígido, que soporta el rango de frecuencias utilizado en el experimento, y viajaban hacia el array sumergido en Helio líquido a \SI{4.2}{\kelvin}
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.75\linewidth]{figuras/experimental/1.png}
+    \includegraphics[width=0.75\linewidth]{figuras/experimental/esquemaJAWS.png}
     \caption{Esquema del arreglo experimental para la prueba del JAWS}
-    \label{fig:experimental_1}
+    \label{fig:experimental_esquemaJAWS}
 \end{figure}
 
-A la señal de pulsos de la FPGA se le agrega una corriente adicional de frecuencia \SI{3.125}{\kilo\hertz} mediante un generador de funciones (Tektronix AFG1062), dicha señal es la corriente de compensación.
+A la señal de pulsos de la FPGA se le agrega una corriente adicional de frecuencia \SI{3.125}{\kilo\hertz} mediante un generador de funciones (Tektronix AFG1062), dicha señal es la corriente de compensación que sería para fijar el plateu en donde el sistema trabajaba.
+
+Para comprobar que el array se encontrara efectivamente en un estado superconductor, se hacía pasar corriente con un generador de corriente (<modelo del generador de corriente>) mientras este estuviera sumergido en el Helio líquido. Esta comprobación se hacía al principio después de sumergir la sonda. Dicha corriente se hacía pasar por <conector correspondiente>, y luego de comprobar se conectaban los demás componentes como se muestra en la figura 
 
 En la figura \ref{fig:experimental_sumaDeCorrientes} \cite{kieler2007} se muestra un detalle de como se suman las señales de pulsos con la corriente de compensación. El chip JAWS tiene pines por los que entra dicha corriente, mientras que los pulsos entran a través de la entrada externa, mediante el cable semirrígido.
 
