@@ -164,7 +164,7 @@ El cambio de temperatura es un factor que puede alterar la forma de estos pulsos
 
 \section{Descripción de la simulación numérica}
 
-La generación de los trenes de pulsos utlizados fue hecha usando el algoritmo de modulación Sigma-Delta standard de primer orden. Este es un método iterativo basado en el esquema de bloques de la figura \ref{fig:numerica_esquemaBloques1erOrden}. La implementación se basó en los trabajos de Aziz y De la Rosa. Existen implementaciones de este método pero que tienen un enfoque distinto, como los de 
+La generación de los trenes de pulsos utlizados fue hecha usando el algoritmo de modulación Sigma-Delta standard de primer orden. Este es un método iterativo basado en el esquema de bloques de la figura \ref{fig:numerica_esquemaBloques1erOrden}. La implementación se basó en los trabajos de Aziz \cite{aziz1996} y De la Rosa \cite{delarosa2011}. Existen implementaciones de este método pero que tienen un enfoque distinto, como la libreria de Python de G. Venturini \cite{DSpython} y la librería de MATLAB de R. Schreier \cite{DSmatlab}.
 
 \begin{figure}[H]
     \centering
@@ -216,7 +216,7 @@ El esquema experimental del JAWS se muestra en la figura \ref{fig:experimental_1
 
 A la señal de pulsos de la FPGA se le agrega una corriente adicional de frecuencia \SI{3.125}{\kilo\hertz} mediante un generador de funciones (Tektronix AFG1062), dicha señal es la corriente de compensación.
 
-En la figura \ref{fig:experimental_sumaDeCorrientes} se muestra un detalle de como se suman las señales de pulsos con la corriente de compensación. El chip JAWS tiene pines por los que entra dicha corriente, mientras que los pulsos entran a través de la entrada externa, mediante el cable semirrígido.
+En la figura \ref{fig:experimental_sumaDeCorrientes} \cite{kieler2007} se muestra un detalle de como se suman las señales de pulsos con la corriente de compensación. El chip JAWS tiene pines por los que entra dicha corriente, mientras que los pulsos entran a través de la entrada externa, mediante el cable semirrígido.
 
 \begin{figure}[H]
     \centering
