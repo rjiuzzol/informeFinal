@@ -103,16 +103,20 @@ En este trabajo se armó e implementó un sistema Josephson pulsado (JAWS)
 
 \section{Introducción}
 
-El JAWS (Josephson Arbitrary Waveform Synthesizer), o sistema Josephson pulsado, es un sistema utilizado para la generación de señales de tensión de forma arbitraria basado en el efecto Josephson, en el cual la tensión generada depende de constantes fundamentales. Pertenece a la familia de sintetizadores basados en el efecto Josephson, como el sistema Josephson programable (PJVS) y el sistema Josephson convencional (CJVS). En la figura \ref{fig:intro_mapaMundoJosephson} se muestra un mapa esquemático que muestra algunos de estos proyectos que se están llevando a cabo actualmente en diferentes centros.
+\subsection{Introducción general} % FINES ORGANIZATIVOS. BORRAR ESTA LINEA AL FINAL
+
+El JAWS (Josephson Arbitrary Waveform Synthesizer), o sistema Josephson pulsado, es un sistema utilizado para la generación de señales de tensión de forma arbitraria basado en el efecto Josephson, en el cual la tensión generada depende de constantes fundamentales. Pertenece a la familia de sintetizadores basados en el efecto Josephson, como el sistema Josephson programable (PJVS) y el sistema Josephson convencional (CJVS). En la figura \ref{fig:intro_mapaMundoJosephson} se muestra un mapa esquemático que muestra algunos de estos proyectos que se están llevando a cabo actualmente en diferentes centros de investigación.
 % mencionar el reciente cambio del sistema de unidades
 \begin{figure}[H]
     \centering
     \includegraphics[width=\linewidth]{figuras/intro/mapaMundoJosephson.jpg}
-    \caption{Mapa esquemático de los actuales proyectos de sistemas de sintetización de señales basados en el efecto Josephson}
+    \caption{Mapa esquemático de algunos de los proyectos actuales de sistemas de sintetización de señales basados en el efecto Josephson}
     \label{fig:intro_mapaMundoJosephson}
 \end{figure}
 
-Una de las ventajas principales del JAWS es que posibilita la minimización del ruido de la señal generada, y para esto se utiliza un método de modulación de pulsos llamado Sigma-Delta ($\Sigma-\Delta$). Esta modulación se usa no solo en metrología, como en nuestro caso, sino también en 
+Una de las ventajas principales del JAWS es que posibilita la minimización del ruido de la señal generada, y para esto se utiliza un método de modulación de pulsos llamado Sigma-Delta ($\Sigma-\Delta$). Esta modulación se usa no solo en metrología, como en nuestro caso, sino también por ejemplo en muchas aplicaciones de grabación y reproducción de audio, ya que las frecuencias bajas de la voz caen en el rango ideal para este tipo de modulación. \cite{SigmaDeltaMT022}
+
+\subsection{Efecto Josephson y su aplicacion en el JAWS}
 
 El JAWS tiene varias ventajas como generador de señales, ya que genera una tensión que tiene dependencia total en constantes universales, y tiene trazabilidad a las mismas especificadas por la ecuación de Josephson para el JAWS \ref{eq:intro_ecuacionJosepshon} \cite{behr2012}.
 
@@ -123,11 +127,9 @@ El JAWS tiene varias ventajas como generador de señales, ya que genera una tens
 
 donde $M$ es la cantidad de junturas del array
 
-    \subsection{Efecto Josephson y su aplicacion en el JAWS}
+El efecto Josephson es un fenómeno que se presenta en las junturas superconductoras, como la que se muestra en la figura \ref{fig:intro_junturaJosephson}, cuando a estas se las somete a diferentes señales de corriente variable. Hay varias manifestaciones de este efecto, siendo las mas conocidas las del efecto Josephson AC y DC; en el JAWS se trabaja con este efecto utilizando trenes de pulsos de corriente a altas frecuencias, del orden de las microondas, generando un efecto similar al del efecto Josephson AC, con la diferencia de que se utilizan pulsos en vez de una señal contínua, que es cuando se envía un tren de pulsos de microondas a un array de junturas Josephson en serie. Otros efectos relacionados son el efecto Josephson AC, que es cuando . Dichos efectos estan entre los que se utilizan para construir otros sintetizadores que aprovechan el mismo fenómeno, como el sistema Josephson programable (PJVS), o el convencional (CJVS). 
 
-    El efecto Josephson es un fenómeno que se presenta en las junturas superconductoras, como la que se muestra en la figura \ref{fig:intro_junturaJosephson}, cuando a estas se las somete a diferentes señales de corriente variable. Hay varias manifestaciones de este efecto, siendo las mas conocidas las del efecto Josephson AC y DC; en el JAWS se trabaja con este efecto utilizando trenes de pulsos de corriente a altas frecuencias, del orden de las microondas, generando un efecto similar al del efecto Josephson AC, con la diferencia de que se utilizan pulsos en vez de una señal contínua, que es cuando se envía un tren de pulsos de microondas a un array de junturas Josephson en serie. Otros efectos relacionados son el efecto Josephson AC, que es cuando . Dichos efectos estan entre los que se utilizan para construir otros sintetizadores que aprovechan el mismo fenómeno, como el sistema Josephson programable (PJVS), o el convencional (CJVS). 
-
-    El efecto josephson pulsado consiste en una conversión entre una señal de tren de pulsos AC,  y 
+El efecto josephson pulsado consiste en una conversión entre una señal de tren de pulsos AC,  y 
 
 
 
@@ -138,11 +140,20 @@ donde $M$ es la cantidad de junturas del array
     \label{fig:intro_junturaJosephson}
 \end{figure}
 
-La curva I-V o curva característica es el gráfico de la tensión en función de la corriente, y en una juntura superconductora se cumple que, en el régimen de temperaturas bajas en las que hay superconducción, dicha curva se aplane, como se muestra en la figura XXX. 
+La curva I-V o curva característica es el gráfico de la tensión en función de la corriente, y en una juntura superconductora se cumple que, en el régimen de temperaturas bajas en las que hay superconducción, dicha curva se aplane, como se muestra en la figura \ref{fig:intro_curvaIV1Juntura}. Esta región en donde pasa corriente  pero no tensión, se caracteriza por tener la resistencia nula, que es propia del régimen superconductor, y está presente cuando el módulo de la corriente es menor que la corriente crítica, en donde el superconductor transiciona al estado normal, en el que vuelve a cumplirse la ley de Ohm. 
 
-[XXX: grafico de behr de la IV de 1 juntura]
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{figuras/intro/curvaIV1Juntura.png}
+    \caption{Curva característica de 1 juntura superconductora}
+    \label{fig:intro_curvaIV1Juntura}
+\end{figure}
 
-Cuando se trata de varias junturas conectadas en serie, como en el array, este nivel de tensión en el que se aplana puede variar, 
+Lo anterior es lo que sucede al hacer pasar una corriente DC a través de la juntura. Pero cuando esta corriente es AC, aparecen varios niveles discretos de tensión, del orden de la cantidad de junturas, que 
+
+Cuando se trata de varias junturas conectadas en serie, como en el array, este nivel de tensión puede encontrarse entre un rango de valores discretos, que llamaremos plateaus. En la figura XXX se muestran plateaus de 1 sola juntura
+
+
 
 Un plateau es una zona de la curva I-V en la que la tensión es constante en un rango contínuo de corrientes. Si la corriente que atraviesa el JAWS se mantiene dentro de una de estas zonas, se verifica la ecuación de Josephson.
 La corriente de compensación se agrega para que el array se encuentre en un plateau, como se muestra en la figura \ref{fig:intro_plateau}. La señal debe estar en un plateau ya que es un requisito para que se verifique la ecuaciónde Josephson.
@@ -161,6 +172,10 @@ El cambio de temperatura es un factor que puede alterar la forma de estos pulsos
     \caption{Señal corrida a la derecha del plateau}
     \label{fig:intro_plateau}
 \end{figure}
+
+\subsection{Modulación Sigma-Delta}
+
+
 
 \section{Descripción de la simulación numérica}
 
@@ -255,7 +270,7 @@ De no estar presente la corriente de compensación, el ruido de la señal podrí
 
     \subsection{Pruebas experimentales con el JAWS}
 
-    
+
 
 \end{multicols}
 
