@@ -114,18 +114,20 @@ El JAWS (Josephson Arbitrary Waveform Synthesizer), o sistema Josephson pulsado,
     \label{fig:intro_mapaMundoJosephson}
 \end{figure}
 
-Una de las ventajas principales del JAWS es que posibilita la minimización del ruido de la señal generada, y para esto se utiliza un método de modulación de pulsos llamado Sigma-Delta ($\Sigma-\Delta$). Esta modulación se usa no solo en metrología, como en nuestro caso, sino también por ejemplo en muchas aplicaciones de grabación y reproducción de audio, ya que las frecuencias bajas de la voz caen en el rango ideal para este tipo de modulación. \cite{SigmaDeltaMT022}
+Una de las ventajas principales del JAWS es que posibilita la minimización del ruido de la señal generada, mediante un método de modulación de pulsos llamado Sigma-Delta ($\Sigma-\Delta$). Esta modulación se usa no solo en metrología, como en nuestro caso, sino también por ejemplo en muchas aplicaciones de grabación y reproducción de audio, ya que las frecuencias bajas de la voz caen en el rango ideal para este tipo de modulación. \cite{SigmaDeltaMT022}
+
+Los sistemas JAWS utilizan arreglos, o arrays, de miles de junturas Josephson conectadas en serie, y que son irradiadas con un tren de pulsos de corriente de tiempo corto, del orden de los $\si{\giga\hertz}$. Cada pulso del tren de pulsos puede tomar un valor que se encuentra en un conjunto discreto preestablecido. En nuestro caso utilizaremos pulsos binarios en el que dicho conjunto es  En el esquema de la figura XXX podemos ver 
 
 \subsection{Efecto Josephson y su aplicacion en el JAWS}
 
-El JAWS tiene varias ventajas como generador de señales, ya que genera una tensión que tiene dependencia total en constantes universales, y tiene trazabilidad a las mismas especificadas por la ecuación de Josephson para el JAWS \ref{eq:intro_ecuacionJosepshon} \cite{behr2012}.
+El JAWS tiene varias ventajas como generador de señales, ya que genera una tensión que tiene dependencia total en constantes universales, y tiene trazabilidad a las mismas especificadas por la ecuación de Josephson para el JAWS \ref{eq:intro_ecuacionJosepshon} \cite{behr2012}
 
 \begin{equation}
     V = A_{\Sigma\Delta} \Phi_0 f n M
     \label{eq:intro_ecuacionJosephson}
 \end{equation}
 
-donde $M$ es la cantidad de junturas del array
+donde $M$ es la cantidad de junturas del array, $A_{\Sigma\Delta}$ es la proporción de pulsos positivos del tren de pulsos
 
 El efecto Josephson es un fenómeno que se presenta en las junturas superconductoras, como la que se muestra en la figura \ref{fig:intro_junturaJosephson}, cuando a estas se las somete a diferentes señales de corriente variable. Hay varias manifestaciones de este efecto, siendo las mas conocidas las del efecto Josephson AC y DC; en el JAWS se trabaja con este efecto utilizando trenes de pulsos de corriente a altas frecuencias, del orden de las microondas, generando un efecto similar al del efecto Josephson AC, con la diferencia de que se utilizan pulsos en vez de una señal contínua, que es cuando se envía un tren de pulsos de microondas a un array de junturas Josephson en serie. Otros efectos relacionados son el efecto Josephson AC, que es cuando . Dichos efectos estan entre los que se utilizan para construir otros sintetizadores que aprovechan el mismo fenómeno, como el sistema Josephson programable (PJVS), o el convencional (CJVS). 
 
@@ -175,6 +177,10 @@ El cambio de temperatura es un factor que puede alterar la forma de estos pulsos
 
 \subsection{Modulación Sigma-Delta}
 
+La modulación Sigma-Delta, o $\Sigma-\Delta$, \cite{delarosa2011} \cite{aziz1996} es una técnica que permite representar una señal analógica de un contínuo de valores, que es la señal deseada, mediante de una señal digital de unos pocos valores discretos, que es la señal del tren de pulsos. La idea consiste en compensar los pocos valores de este tren con una alta tasa de muestreo o pulsos por unidad de tiempo, de manera que mediante un promedio, o proceso de decimación, se obtenga la señal deseada. 
+
+%Para esto, es necesario que la señal que se quiera generar tenga frecuencias bajas con respecto a la señal del tren de pulsos. 
+%Esto se precisa con el parámetro de sobremuestreo, OSR (Oversampling ratio), definido
 
 
 \section{Descripción de la simulación numérica}
@@ -267,6 +273,8 @@ De no estar presente la corriente de compensación, el ruido de la señal podrí
         \caption{Medición de la salida de la FPGA en el modo de patrón de 1 pulso cada 32}
         \label{fig:resultados_patron32FPGA}
     \end{figure}
+
+    Dicho patrón se corresponde con 1 pulso positivo cada 16, y sirve para comprobar que la frecuencia manejada por la FPGA es la correcta. Como se ve en la figura \ref{fig:resultados_patron32FPGA}, el período entre pulsos positivos es de $\SI{3.2}{\micro\second}$
 
     \subsection{Pruebas experimentales con el JAWS}
 
